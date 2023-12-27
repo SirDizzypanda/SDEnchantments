@@ -15,6 +15,8 @@ public class EnchantmentsClass {
         public static RegistryObject<Enchantment> DISSECTION = ENCHANTMENTS.register
                 ("dissection", () -> new DissectionEnchantment(Enchantment.Rarity.RARE,EnchantmentCategory.WEAPON,EquipmentSlot.MAINHAND));
 
+        public static RegistryObject<Enchantment> LIFESTEAL = ENCHANTMENTS.register
+                ( "lifesteal", () -> new LifestealEnchantment(Enchantment.Rarity.RARE, EnchantmentCategory.WEAPON,EquipmentSlot.MAINHAND));
 
         public static void register(IEventBus eventBus) {
                 ENCHANTMENTS.register(eventBus);
