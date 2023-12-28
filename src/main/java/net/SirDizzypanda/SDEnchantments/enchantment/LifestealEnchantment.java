@@ -28,7 +28,12 @@ public class LifestealEnchantment extends Enchantment {
     public void doPostAttack(LivingEntity pAttacker, Entity pTarget, int pLevel) {
 
         if (!pAttacker.level().isClientSide) {
-            pAttacker.addEffect(new MobEffectInstance(MobEffects.REGENERATION,pLevel*20,2));
+            if (pAttacker.getUsedItemHand() == InteractionHand.MAIN_HAND) {
+                if (pTarget instanceof LivingEntity target) {
+
+                    pAttacker.heal(target.getHealth() / 20 * pLevel);
+                }
+            }
         }
         super.doPostAttack(pAttacker, pTarget, pLevel);
 

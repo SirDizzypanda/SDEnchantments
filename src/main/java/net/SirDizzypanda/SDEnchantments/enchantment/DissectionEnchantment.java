@@ -3,6 +3,7 @@ package net.SirDizzypanda.SDEnchantments.enchantment;
 import net.SirDizzypanda.SDEnchantments.SDEnchantments;
 import net.SirDizzypanda.SDEnchantments.effect.BleedingEffect;
 import net.SirDizzypanda.SDEnchantments.effect.EffectsClass;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.effect.MobEffect;
@@ -23,8 +24,11 @@ public class DissectionEnchantment extends Enchantment {
     @Override
     public void doPostAttack(LivingEntity pAttacker, Entity pTarget, int pLevel) {
         if (!pAttacker.level().isClientSide){
-            pAttacker.addEffect(new MobEffectInstance(EffectsClass.BLEEDING.get(), 5*pLevel) , pTarget);
-
+            if (pAttacker.getUsedItemHand() == InteractionHand.MAIN_HAND) {
+                if (pTarget instanceof LivingEntity target) {
+                    target.addEffect(new MobEffectInstance(EffectsClass.BLEEDING.get(), 20 * pLevel), pTarget);
+                }
+            }
         }
 
         super.doPostAttack(pAttacker, pTarget, pLevel);

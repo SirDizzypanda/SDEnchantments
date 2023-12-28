@@ -13,10 +13,16 @@ public class EnchantmentsClass {
         public static final DeferredRegister<Enchantment> ENCHANTMENTS = DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, SDEnchantments.MOD_ID);
 
         public static RegistryObject<Enchantment> DISSECTION = ENCHANTMENTS.register
-                ("dissection", () -> new DissectionEnchantment(Enchantment.Rarity.RARE,EnchantmentCategory.WEAPON,EquipmentSlot.MAINHAND));
+                ("dissection", () -> new DissectionEnchantment
+                        (Enchantment.Rarity.RARE,EnchantmentCategory.WEAPON,EquipmentSlot.MAINHAND));
 
         public static RegistryObject<Enchantment> LIFESTEAL = ENCHANTMENTS.register
-                ( "lifesteal", () -> new LifestealEnchantment(Enchantment.Rarity.RARE, EnchantmentCategory.WEAPON,EquipmentSlot.MAINHAND));
+                ( "lifesteal", () -> new LifestealEnchantment
+                        (Enchantment.Rarity.RARE, EnchantmentCategory.WEAPON,EquipmentSlot.MAINHAND));
+
+        public static RegistryObject<Enchantment> ARMOROFFIRE = ENCHANTMENTS.register
+                ( "armor_of_fire", () -> new LifestealEnchantment
+                        (Enchantment.Rarity.RARE, EnchantmentCategory.ARMOR,EquipmentSlot.HEAD,EquipmentSlot.CHEST,EquipmentSlot.LEGS,EquipmentSlot.FEET));
 
         public static void register(IEventBus eventBus) {
                 ENCHANTMENTS.register(eventBus);

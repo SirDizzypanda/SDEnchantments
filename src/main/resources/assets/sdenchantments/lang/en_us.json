@@ -4,7 +4,9 @@
 
 
 
+  "effect.sdenchantments.bleeding": "Bleeding",
 
+  "enchantment.sdenchantments.armor_of_fire" : "Armor of fire",
   "enchantment.sdenchantments.dissection": "Dissection",
   "enchantment.sdenchantments.lifesteal": "Lifesteal"
 }
